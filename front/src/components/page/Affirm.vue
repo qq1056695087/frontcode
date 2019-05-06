@@ -54,13 +54,6 @@
     <el-col :span="3"><div>￥50</div></i></el-col>
   </el-row>
   <el-row>
-    <el-col :span="3"><el-image style="width: 100px; height: 100px" :src="url" :fit="fit"></el-image></el-col>
-    <el-col :span="8"><div style="float: left">book1</div></el-col>
-    <el-col :span="3" :offset="4"><div>￥50</div></el-col>
-    <el-col :span="3"><div>{{num}}</div></el-col>
-    <el-col :span="3"><div>￥50</div></i></el-col>
-  </el-row>
-  <el-row>
   </br>
   </el-row>
   <el-row style="color:blue">

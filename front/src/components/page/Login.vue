@@ -1,14 +1,14 @@
 <template lang="html">
   <el-card style="background-color:#84C1FF"class="box-card">
     <h2 style="color:black">用户登录</h2>
-  <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-    <el-form-item label="用户名" prop="username">
-      <el-input style="width:250px;" v-model.number="ruleForm.username"></el-input>
+  <el-form :model="loginRuleform" status-icon :rules="rules" ref="loginRuleform" label-width="100px" class="demo-loginRuleform">
+    <el-form-item label="用户名" prop="loginUsername">
+      <el-input style="width:250px;" v-model.number="loginRuleform.loginUsername"></el-input>
     </el-form-item>
-    <el-form-item label="密码" prop="pass">
-      <el-input style="width:250px;" type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+    <el-form-item label="密码" prop="loginPass">
+      <el-input style="width:250px;" type="password" v-model="loginRuleform.loginPass" autocomplete="off"></el-input>
     </el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm')" >登录</el-button>
+    <el-button type="primary" @click="submitForm('loginRuleform')" >登录</el-button>
   </el-form>
   </el-card>
 </template>
@@ -16,24 +16,21 @@
 <script>
   export default {
 data() {
-  var validatePass = (rule, value, callback) => {
+  var validateloginPass = (rule, value, callback) => {
     if (value === '') {
       callback(new Error('请输入密码'));
-    } else {
-      if (this.ruleForm.checkPass !== '') {
-        this.$refs.ruleForm.validateField('checkPass');
-      }
-      callback();
     }
+      callback();
+
   };
   return {
-    ruleForm: {
-      pass: '',
-      username:''
+    loginRuleform: {
+      loginPass: '',
+      loginUsername:''
     },
     rules: {
-      pass: [
-        { validator: validatePass, trigger: 'blur' }
+      loginPass: [
+        { validator: validateloginPass, trigger: 'blur' }
       ],
     }
   };
@@ -42,9 +39,9 @@ methods: {
   submitForm(formName) {
     this.$refs[formName].validate((valid) => {
       if (valid) {
-        alert('submit!');
+        alert('登录成功！');
       } else {
-        console.log('error submit!!');
+        console.log('登录失败！！');
         return false;
       }
     });

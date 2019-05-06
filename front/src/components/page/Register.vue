@@ -61,9 +61,9 @@ methods: {
   submitForm(formName) {
     this.$refs[formName].validate((valid) => {
       if (valid) {
-        alert('submit!');
+        alert('注册成功！');
       } else {
-        console.log('error submit!!');
+        console.log('注册失败!!');
         return false;
       }
     });
